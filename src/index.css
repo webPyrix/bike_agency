@@ -1,13 +1,634 @@
-body {
+/* heading fonts  */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+
+/* paragraph fonts  */
+
+
+
+
+
+*{
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body{
+  /* width: 100vw;
+  overflow-x: hidden; */
+}
+
+p,h1,h2,h3,h4,h5,ul,li{
+  padding: 0;
+  margin: 0;
+}
+
+:root{
+  --logo-color: #8A91F9;
+  --background-color: white;
+  --text-color: #333333d2;
+  --faint-text-color: #8b0f04;
+  --text-color-white: white;
+  --fonts-heading: "Bebas Neue", sans-serif;
+  --fonts-heading-sub: Arial, sans-serif;
+}
+
+
+/* link  */
+
+.links{
+  text-decoration: none;
+}
+
+
+/* button  */
+
+.buttons{
+  background-color: var(--logo-color);
+  color: var(--background-color);
+  padding: 5px 30px;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.buttons:hover{
+  background-color: var(--background-color);
+  color: var(--logo-color);
+  border: 1px solid var(--logo-color);
+}
+
+/* buttons2 */
+
+.buttons2{
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  background-color: var(--logo-color);
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 100px;
+  top: 35%;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.buttons2 img{
+  transition: all 0.3s ease;
+}
+
+.buttons2:hover img{
+  transform: rotate(45deg);
+}
+.buttons2 img{
+  height: 30px;
+}
+
+
+
+/* button 3 cards */
+
+.card_button{
+  width: 100%;
+  border-radius: 5px;
+  background-color: var(--faint-text-color);
+  color: white;
+  border: none;
+  padding: 10px;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.card_button:hover{
+  background-color: transparent;
+  color: var(--faint-text-color);
+  border: 1px solid var(--faint-text-color);
+}
+
+
+
+
+
+
+
+
+.headings{
+    font-family: "Bebas Neue", sans-serif;
+    font-size: clamp(25px, 5vw, 50px);
+    line-height: 50px;
+    font-weight: 100;
+}
+
+.sub_headings{
+  font-family: Arial, sans-serif;
+  font-size: clamp(15px, 3vw, 24px);
+  font-weight: bold;
+}
+
+.head_para{
+  font-family: Arial, sans-serif;
+  font-size: clamp(14px, 2vw, 16px);
+  color: var(--faint-text-color);
+  text-align: center;
+  padding: 20px 0px;
+}
+
+.paragraphs{
+  font-family: Arial, sans-serif;
+  font-weight: 100;
+  font-size: clamp(13px, 3vw, 16px);
+  color: var(--text-color);
+}
+
+.heading_box{
+  padding: 10px;
+  border: 1px solid var(--logo-color);
+  width: fit-content;
+}
+
+.heading_box h3{
+  font-family: Arial, sans-serif;
+  color: var(--logo-color);
+  font-size: 13px;
+  letter-spacing: 7px;
+}
+
+
+/* section_paddings */
+.section-p{
+  padding-top: 150px;
+  padding-bottom: 50px;
+}
+
+
+
+
+/* inverse heading for blue background */
+
+
+.headings2{
+    font-family: "Bebas Neue", sans-serif;
+    font-size: clamp(25px, 5vw, 50px);
+    line-height: 50px;
+    font-weight: 100;
+    color: white;
+}
+
+.sub_headings2{
+  font-family: Arial, sans-serif;
+  font-size: clamp(15px, 3vw, 24px);
+  font-weight: bold;
+}
+
+.head_para2{
+  font-family: Arial, sans-serif;
+  font-size: clamp(14px, 2vw, 16px);
+  color: var(--faint-text-color);
+  text-align: center;
+  padding: 20px 0px;
+}
+
+.paragraphs2{
+  font-family: Arial, sans-serif;
+  font-weight: 100;
+  font-size: clamp(13px, 3vw, 16px);
+  color: var(--text-color);
+}
+
+.heading_box2{
+  padding: 10px;
+  border: 1px solid white;
+  width: fit-content;
+}
+
+.heading_box2 h3{
+  font-family: Arial, sans-serif;
+  color: white;
+  font-size: 13px;
+  letter-spacing: 7px;
+}
+
+.text_section2{
+    border-right: 1px solid rgba(255, 255, 255, 0.4);
+    text-align: right;
+    padding: 0px 20px;
+}
+
+.head_para2{
+  font-family: Arial, sans-serif;
+  font-size: clamp(14px, 2vw, 16px);
+  color: var(--background-color);
+  text-align: center;
+  padding: 20px 0px;
+}
+
+
+
+
+
+
+
+
+                    /* sections css */
+
+
+
+
+
+
+
+
+/* hero section  */
+
+.hero_section{
+  height: 100vh;
+  background-image: url(./images/hero.png);
+  background-position: center;
+  background-size: cover;
+}
+
+
+/* about */
+.about{
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.348);
+}
+
+.about::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url(./images/background.png);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.09;
+  z-index: -1;
+  background-attachment: fixed;
+}
+
+
+.heading_section{
+  text-align: right;
+}
+
+
+.text_section{
+  text-align: right;
+  border-right: 1px solid rgba(0, 0, 0, 0.242);
+}
+
+.text_section, .section_heading_box{
+  padding: 0px 20px;
+}
+
+
+
+
+
+.about_section_image{
+  padding: 20px 20px;
+}
+
+.about_section_image img{
+  border-radius: 20px;
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.about_section_text .centerPara{
+  padding: 20px 0px;
+}
+
+
+
+
+
+
+
+
+/* services  */
+
+.bike-car{
+  margin-top: 50px;
+}
+
+.services_boxes{
+  padding: 20px 10px 70px 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.service_texts{
+  margin-left: 20px;
+}
+
+.services_boxes .dot{
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  background-color: var(--logo-color);
+  border-radius: 50%;
+  margin: 0px 10px;
+}
+
+.services_boxes:hover .buttons2{
+  opacity: 1;
+  transform: translateY(-20px);
+}
+
+.services_headings{
+  color: var(--text-color);
+  font-size: clamp(30px , 10vw, 120px);
+  font-weight: 100;
+  font-family: var(--fonts-heading-sub);
+
+}
+
+
+.fancy-hover {
+  position: relative;
+}
+
+.fancy-hover::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--after-width, 0%);
+  height: 100%;
+  color: var(--logo-color);
+  overflow: hidden;
+  white-space: nowrap;
+  transition: width 0.4s ease; /* optional fallback */
+  z-index: 1;
+}
+.services_boxes:hover .fancy-hover::after {
+  width: 100%;
+}
+
+
+
+.service_image {
+  height: 500px;
+  width: 100%;
+  position: sticky;
+  top: calc(50% - 250px);
+  pointer-events: none;
+}
+
+
+.service_image video{
+  height: 100%;
+  width: 80%;
+  opacity: 0;
+  position: absolute;
+  left: 10%;
+  top: 0;
+  object-fit: cover;
+  border-radius: 10px;
+
+}
+
+
+
+
+
+
+/* packages bike  */
+
+.cards_parent{
+  padding: 20px 0px;
+}
+
+.bike_packages{
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  background-color: #343c44;
+}
+
+
+/* car packages  */
+.car_packages{
+  background-color: #343c44;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* media queries  */
+
+
+
+@media (max-width: 1200px){
+
+  .buttons2{
+    height: 60px;
+    width: 60px;
+    right: 20px;
+    top: 30%
+  }
+
+  .buttons2 img{
+    height: 20px;
+  }
+
+
+  .hero_section{
+    height: 80vh;
+  }
+
+
+  
+
+}
+
+
+
+@media (max-width: 992px){
+
+  .buttons2{
+    height: 50px;
+    width: 50px;
+    right: 20px;
+    top: 27%
+  }
+
+  .buttons2 img{
+    height: 20px;
+  }
+
+
+  
+  .headings, .headings2{
+    line-height: clamp(20px, 5vw, 40px);
+  }
+
+
+  /* services section  */
+
+  .bike-car{
+    margin-top: 20px;
+  }
+
+  .service_image {
+    height: 400px;
+    width: 100%;
+    position: sticky;
+    top: calc(50% - 200px);
+    pointer-events: none;
+  }
+
+
+  .services_boxes{
+    padding: 10px 10px 40px 10px;
+
+  }
+
+  .services_boxes .dot{
+    height: 8px;
+    width: 8px;
+    margin: 0px 5px;
+  }
+
+
+
+
+}
+
+
+@media (max-width: 767px){
+  .video_section_left{
+    display: none;
+  }
+}
+
+@media (max-width: 768px){
+  .buttons{
+    padding: 5px 20px;
+    font-size: 15px
+  }
+
+  /* section_paddings */
+  .section-p{
+    padding-top: 100px;
+  }
+
+
+  /* services section  */
+  
+  
+}
+
+
+
+@media (max-width: 576px){
+  .heading_box, .heading_box2{
+    padding: 5px;
+  }
+
+  .heading_box h3, .heading_box2 h3{
+    font-size: 10px;
+    letter-spacing: 5px;
+  }
+  
+  .head_para {
+    margin: 0% auto;
+    width: 80%;
+    padding: 15px 0px;
+    line-height: 15px;
+  }
+
+  .about_section_image img{
+    height: 200px;
+  }
+  .about_section_image{
+    padding: 20px 0px;
+  }
+
+  .text_section, .section_heading_box, .text_section2{
+    padding: 0px 10px;
+  }
+
+
+  /* services  */
+
+  .bike_packages{
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+
+  }
+
+  .small_service_para{
+    font-size: 10px;
+  }
+
+  .services_boxes .dot{
+    height: 5px;
+    width: 5px;
+    margin: 0px 3px;
+  }
+
+  .services_boxes {
+        padding: 10px 10px 30px 10px;
+  }
+
+}
+
+
+@media (max-width: 480px){
+  .buttons2{
+    height: 40px;
+    width: 40px;
+    right: 20px;
+    top: 35%
+  }
+
+  .buttons2 img{
+    height: 15px;
+  }
+
+  .bike-car{
+    margin-top: 0px;
+  }
+
+
+
+  /* services  */
+
+  .services_boxes {
+        padding: 10px 10px 20px 10px;
+  }
+  
+  /* .services_headings{
+    font-size: 30px;
+  } */
+
+  .small_service_para{
+    font-size: 8px;
+  }
 }
