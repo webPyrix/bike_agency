@@ -1,22 +1,31 @@
 {
   "files": {
-    "main.css": "/bike_agency/static/css/main.987d8177.css",
-    "main.js": "/bike_agency/static/js/main.ccf2d11e.js",
-    "static/js/453.08138937.chunk.js": "/bike_agency/static/js/453.08138937.chunk.js",
-    "static/media/video1.mp4": "/bike_agency/static/media/video1.c4e9300499cf16fe2bf4.mp4",
-    "static/media/hero.png": "/bike_agency/static/media/hero.271457f650585826d4fd.png",
-    "static/media/video2.mp4": "/bike_agency/static/media/video2.be26a6c9ffafdc17fe79.mp4",
-    "static/media/video3.mp4": "/bike_agency/static/media/video3.5ab54021d17e2adb1730.mp4",
-    "static/media/background.png": "/bike_agency/static/media/background.6b3437699345b2984845.png",
-    "static/media/about_image.png": "/bike_agency/static/media/about_image.14bf008401286975b01a.png",
+    "main.css": "/bike_agency/static/css/main.58dc98a0.css",
+    "main.js": "/bike_agency/static/js/main.b90a8798.js",
+    "static/js/900.a83f86e3.chunk.js": "/bike_agency/static/js/900.a83f86e3.chunk.js",
+    "static/js/453.5b1459bd.chunk.js": "/bike_agency/static/js/453.5b1459bd.chunk.js",
+    "static/media/background.webp": "/bike_agency/static/media/background.34f178877b1c1cec30bc.webp",
+    "static/media/gallery1.webp": "/bike_agency/static/media/gallery1.4b05963659c067297bbb.webp",
+    "static/media/gallery10.webp": "/bike_agency/static/media/gallery10.af3c889d8d8996141a41.webp",
+    "static/media/gallery6.webp": "/bike_agency/static/media/gallery6.aa9a78d71049ab403784.webp",
+    "static/media/gallery3.webp": "/bike_agency/static/media/gallery3.eb79455aae93f26e1ca7.webp",
     "static/media/logo.png": "/bike_agency/static/media/logo.8304fd635c4a17ac6689.png",
+    "static/media/gallery4.webp": "/bike_agency/static/media/gallery4.436ac46b545990cf148f.webp",
+    "static/media/gallery11.webp": "/bike_agency/static/media/gallery11.6ca9e6fa0479ff72ac7c.webp",
+    "static/media/gallery2.webp": "/bike_agency/static/media/gallery2.a99d32294e42666fbc62.webp",
+    "static/media/gallery5.webp": "/bike_agency/static/media/gallery5.15bdb3d5eda75fc3da5b.webp",
+    "static/media/gallery7.webp": "/bike_agency/static/media/gallery7.c9dd587bb4dbf5f94209.webp",
+    "static/media/hero1.webp": "/bike_agency/static/media/hero1.edf014c729a01011a18f.webp",
+    "static/media/gallery8.webp": "/bike_agency/static/media/gallery8.10a231190f82d10760ad.webp",
+    "static/media/about_image.webp": "/bike_agency/static/media/about_image.06e569aebaee30b53482.webp",
+    "static/media/gallery9.webp": "/bike_agency/static/media/gallery9.f5a5ed43a9010a7cf018.webp",
     "index.html": "/bike_agency/index.html",
-    "main.987d8177.css.map": "/bike_agency/static/css/main.987d8177.css.map",
-    "main.ccf2d11e.js.map": "/bike_agency/static/js/main.ccf2d11e.js.map",
-    "453.08138937.chunk.js.map": "/bike_agency/static/js/453.08138937.chunk.js.map"
+    "main.58dc98a0.css.map": "/bike_agency/static/css/main.58dc98a0.css.map",
+    "main.b90a8798.js.map": "/bike_agency/static/js/main.b90a8798.js.map",
+    "453.5b1459bd.chunk.js.map": "/bike_agency/static/js/453.5b1459bd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.987d8177.css",
-    "static/js/main.ccf2d11e.js"
+    "static/css/main.58dc98a0.css",
+    "static/js/main.b90a8798.js"
   ]
 }
