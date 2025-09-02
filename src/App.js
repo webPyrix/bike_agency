@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 // css imports 
 import './App.css';
@@ -16,7 +16,7 @@ import Animation from "./components/fadeIn";
 
 function App() {
   return (
-    <Router>
+    <>
       <Nav />
 
       <Routes>
@@ -25,7 +25,7 @@ function App() {
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/animation" element={<Animation />}></Route>
       </Routes>
-    </Router>
+      </>
   );
 }
 

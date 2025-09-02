@@ -22,8 +22,8 @@ export const Button2 = ()=>{
     )
 }
 
-export const Cardbutton = ()=>{
+export const Cardbutton = ({label})=>{
     return(
-        <button className="card_button">Book Now</button>
+        <button className="card_button">{label}</button>
     )
 }

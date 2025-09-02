@@ -44,15 +44,29 @@ function Nav(){
                                         <Link to="/about" className="nav-link">About</Link>
                                     </li>
 
-                                    <li>Bikes</li>
+                                    <li className="hasDropdown"><span>Services</span> 
+                                        <ul className="dropdown">
+                                            <li>Bike Rental</li>
+                                            <li>Car Rental</li>
+                                            <li>Hotel Bookings</li>
+                                            <li>Custom Tours</li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </div>
                             <div className="col-2 d-flex justify-content-center">
-                                <img className="nav_logo" src={logo} alt="" />
+                                <Link to="/"><img className="nav_logo" src={logo} alt="" /></Link>
                             </div>
                             <div className="col-5 d-flex align-items-center justify-content-end">
                                 <ul className="nav_links">
-                                    <li>Packages</li>
+                                    <li className="hasDropdown"> <span>Packages</span>
+                                        <ul className="dropdown">
+                                            <li>Bike Packages</li>
+                                            <li>Car Packages</li>
+                                            <li>Trekking</li>
+                                            <li>Custom Tour</li>
+                                        </ul>
+                                    </li>
                                     <li>Gallery</li>
                                     <li>FAQ's</li>
                                 </ul>

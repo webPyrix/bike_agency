@@ -1,17 +1,26 @@
-import { Button, Button2 } from "../components/button";
+import { Button, Button2, Cardbutton } from "../components/button";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { gsap } from "gsap";
-import bike1 from "../images/videos/video1.mp4";
-import bike2 from "../images/videos/video2.mp4";
-import bike3 from "../images/videos/video3.mp4";
+import From from "../components/form";
+import Gallery  from "../components/gallery";
+
+// import bike1 from "../images/videos/video1.mp4";
+// import bike2 from "../images/videos/video2.mp4";
+// import bike3 from "../images/videos/video3.mp4";
 
 import BikeCard from "../components/cards";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 
-import about_image from "../images/about_image.png";
+import about_image from "../images/about_image.webp";
 // import BikeCarousel from '../components/bikeCarousel';
+
+
+import img2 from "../images/gallery/gallery3.webp"
+import img4 from "../images/gallery/gallery5.webp"
+import img7 from "../images/gallery/gallery6.webp"
+
 
 
 
@@ -26,123 +35,142 @@ function Home() {
 
 
 
-useEffect(() => {
-    const boxes = document.querySelectorAll(".services_boxes");
+    useEffect(() => {
+        const boxes = document.querySelectorAll(".services_boxes");
 
-    const activeMap = new Map(); // Tracks GSAP timelines per box
+        const activeMap = new Map();
 
-    if (window.innerWidth < 767) {
-        // ✅ MOBILE: Scroll + Click hover animation
+        if (window.innerWidth < 767) {
 
-        boxes.forEach((box) => {
-            const heading = box.querySelector(".fancy-hover");
-            const button = box.querySelector(".buttons2");
+            boxes.forEach((box) => {
+                const heading = box.querySelector(".fancy-hover");
+                const button = box.querySelector(".buttons2");
 
-            // Set default states
-            gsap.set(heading, { "--after-width": "0%" });
-            gsap.set(button, { opacity: 0, y: 0 });
+                gsap.set(heading, { "--after-width": "0%" });
+                gsap.set(button, { opacity: 0, y: 0 });
 
-            const tl = gsap.timeline({ paused: true, defaults: { ease: "power2.out" } });
+                const tl = gsap.timeline({ paused: true, defaults: { ease: "power2.out" } });
 
-            tl.to(heading, {
-                "--after-width": "100%",
-                duration: 0.4
-            });
+                tl.to(heading, {
+                    "--after-width": "100%",
+                    duration: 0.4
+                });
 
-            tl.to(button, {
-                opacity: 1,
-                y: -20,
-                duration: 0.3
-            }, "<");
+                tl.to(button, {
+                    opacity: 1,
+                    y: -20,
+                    duration: 0.3
+                }, "<");
 
-            activeMap.set(box, tl);
+                activeMap.set(box, tl);
 
-            // ScrollTrigger for mobile
-            ScrollTrigger.create({
-                trigger: box,
-                start: "top 45%",
-                end: "bottom 45%",
-                onEnter: () => {
+                ScrollTrigger.create({
+                    trigger: box,
+                    start: "top 45%",
+                    end: "bottom 45%",
+                    onEnter: () => {
+                        resetAllExcept(box);
+                        tl.play();
+                    },
+                    onLeave: () => tl.reverse(),
+                    onEnterBack: () => {
+                        resetAllExcept(box);
+                        tl.play();
+                    },
+                    onLeaveBack: () => tl.reverse(),
+                    // markers: true,
+                });
+
+                box.addEventListener("click", () => {
                     resetAllExcept(box);
                     tl.play();
-                },
-                onLeave: () => tl.reverse(),
-                onEnterBack: () => {
-                    resetAllExcept(box);
-                    tl.play();
-                },
-                onLeaveBack: () => tl.reverse(),
-                // markers: true,
+                });
             });
 
-            // Click support on mobile too
-            box.addEventListener("click", () => {
-                resetAllExcept(box);
-                tl.play();
-            });
-        });
+            function resetAllExcept(currentBox) {
+                activeMap.forEach((timeline, box) => {
+                    if (box !== currentBox) {
+                        timeline.reverse();
+                    }
+                });
+            }
 
-        // Helper to deactivate all others
-        function resetAllExcept(currentBox) {
-            activeMap.forEach((timeline, box) => {
-                if (box !== currentBox) {
-                    timeline.reverse();
-                }
+        } else {
+
+            const allVideos = document.querySelectorAll(".service_image video");
+
+            boxes.forEach((box) => {
+                const videoId = box.getAttribute("data-img");
+                const targetVideo = document.getElementById(videoId);
+
+                box.addEventListener("mouseenter", () => {
+                    gsap.to(allVideos, {
+                        opacity: 0,
+                        x: -200,
+                        ease: "power2.out",
+                        duration: 0.3
+                    });
+
+                    gsap.to(targetVideo, {
+                        opacity: 1,
+                        x: 0,
+                        duration: 0.4,
+                        ease: "power2.out"
+                    });
+                });
+
+                box.addEventListener("mouseleave", () => {
+                    gsap.to(targetVideo, {
+                        opacity: 0,
+                        x: -100,
+                        duration: 0.3,
+                        ease: "power2.out"
+                    });
+                });
             });
         }
 
-    } else {
-        // ✅ DESKTOP: Hover-based video animation
+        return () => {
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 
-        const allVideos = document.querySelectorAll(".service_image video");
-
-        boxes.forEach((box) => {
-            const videoId = box.getAttribute("data-img");
-            const targetVideo = document.getElementById(videoId);
-
-            box.addEventListener("mouseenter", () => {
-                gsap.to(allVideos, {
-                    opacity: 0,
-                    x: -200,
-                    ease: "power2.out",
-                    duration: 0.3
-                });
-
-                gsap.to(targetVideo, {
-                    opacity: 1,
-                    x: 0,
-                    duration: 0.4,
-                    ease: "power2.out"
-                });
+            boxes.forEach((box) => {
+                box.replaceWith(box.cloneNode(true));
             });
-
-            box.addEventListener("mouseleave", () => {
-                gsap.to(targetVideo, {
-                    opacity: 0,
-                    x: -100,
-                    duration: 0.3,
-                    ease: "power2.out"
-                });
-            });
-        });
-    }
-
-    return () => {
-        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-
-        // Remove click events safely
-        boxes.forEach((box) => {
-            box.replaceWith(box.cloneNode(true));
-        });
-    };
-}, []);
+        };
+    }, []);
 
 
 
     return (
         <>
             <header className="hero_section">
+                <div className="container main_hero_container">
+                    <div className="col-12 col-md-12 col-lg-6 hero_text">
+                        <h1 className="mainheading pb-2">Ladakh's Most Trusted Travel Partner</h1>
+                        <p className="txt_white_para pb-4">Discover the ultimate Himalayan experience with Travel to Himalaya. From thrilling bike rides and scenic car rentals to guided treks, cozy hotel stays, and fully customizable travel packages — we’ve got everything you need to turn your mountain dreams into reality.</p>
+                        {/* <Link to=""> <Button label="Book Your Trip" /></Link> */}
+                    </div>
+
+                    {/* form section  */}
+
+                    <section>
+                        <div className="container form_section">
+                            <From />
+                        </div>
+                    </section>
+                </div>
             </header>
+
+
+            {/* form section  */}
+            <section>
+                <div className="container form_section_small">
+                    <From />
+                </div>
+            </section>
+
+
+
 
             {/* about section  */}
 
@@ -183,8 +211,10 @@ useEffect(() => {
 
 
 
-            {/* bikes_section */}
-            <div className="container-fluid section-p">
+            {/* bikes_section  */}
+            {/* for now we are not usign this section */}
+
+            {/* <div className="container-fluid section-p">
                 <div className="container ">
                     <div className="row align-items-center">
                         <div className="col-6 p-0">
@@ -280,7 +310,7 @@ useEffect(() => {
                     </div>
                 </div>
             </div>
-        </div>
+            </div> */}
 
 
             {/* bikes_packages */}
@@ -288,51 +318,76 @@ useEffect(() => {
                 <div className="container section-p">
                     <div className="row align-items-center">
                         <div className="col-6 p-0">
-                            <div className="text_section2">
-                                <h2 className="headings2">Our Bike Rental <br />Packages</h2>
+                            <div className="text_section">
+                                <h2 className="headings">Our Adventure Tour <br />Packages</h2>
                             </div>
                         </div>
                         <div className="col-6 p-0">
                             <div className="section_heading_box">
-                                <div className="heading_box2">
-                                    <h3>Bike Tours</h3>
+                                <div className="heading_box">
+                                    <h3>Adventure Tours</h3>
                                 </div>
                             </div>
                         </div>
-                        <p className="head_para2">Choose your ride and hit the Ladakh roads geared for thrill and comfort.</p>
+                        <p className="head_para">Choose your ride and hit the Ladakh roads geared for thrill and comfort.</p>
                     </div>
 
 
                     {/* cards */}
-                    
+
                     <div className="container cards_parent">
-                        <div className="row justify-content-evenly">
-                            <div className="col-lg-4 col-md-4 col-12 card_parent d-flex justify-content-center">
-                                <BikeCard
-                                    heading="Himalayan Bike Package"
-                                    descrip="Ride across Ladakh on a Royal Enfield Himalayan with full support."
-                                    cardImg="https://himalayanrider.com/wp-content/uploads/2024/09/WhatsApp-Image-2024-09-26-at-11.43.10-AM-7.jpeg"
-                                    link="./about"
-                                    durations="5 Days 4 Nights"
-                                />
+                        <div className="row  justify-content-lg-evenly">
+                            <div className="col-lg-4 col-md-6 col-12 card_parent d-flex justify-content-center">
 
-
-                            </div>
-                            <div className="col-lg-4 col-md-4 col-12 card_parent d-flex justify-content-center">
                                 <BikeCard
-                                    heading="Himalayan Bike Package"
                                     descrip="Ride across Ladakh on a Royal Enfield Himalayan with full support."
-                                    cardImg="https://images.unsplash.com/photo-1667186664456-464c1fda29a4?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bGFkYWtoJTIwYmlrZXxlbnwwfHwwfHx8MA%3D%3D"
+                                    heading="Moto Tour Ladakh"
                                     durations="7 Days 6 Nights"
+                                    cardImg={img2}
+                                    price="31,000"
+                                    route={
+                                        <p>
+                                            Leh <div className="dot"></div> Sham Valley <div className="dot"></div> Nubra <div className="dot"></div> Pangong Lake <div className="dot"></div> Tsomoriri <div className="dot"></div> Leh
+                                        </p>
+                                    }
+                                />
+
+
+                            </div>
+                            <div className="col-lg-4 col-md-6 col-12 card_parent d-flex justify-content-center mt-4 mt-md-0">
+                                <BikeCard
+                                    descrip="Ride across Ladakh on a Royal Enfield Himalayan with full support."
+                                    heading="Experience Ladakh"
+                                    durations="7 Days 6 Nights"
+                                    cardImg={img4}
+                                    price="31,000"
+                                    route={
+                                        <p>
+                                            Leh <div className="dot"></div> Sham Valley <div className="dot"></div> Nubra <div className="dot"></div> Turtuk <div className="dot"></div> Pangong Lake <div className="dot"></div> Leh
+                                        </p>
+                                    }
                                 />
                             </div>
-                            <div className="col-lg-4 col-md-4 col-12 card_parent d-flex justify-content-center">
+                            <div className="col-lg-4 col-md-6 col-12 card_parent d-flex justify-content-center mt-4 mt-md-4 mt-lg-0">
                                 <BikeCard
-                                    heading="Himalayan Bike Package"
                                     descrip="Ride across Ladakh on a Royal Enfield Himalayan with full support."
-                                    cardImg="https://internationalyouthclub.org/wp-content/uploads/2024/12/Leh-Ladakh-Bike-Trip-for-Couples_11zon.jpg"
-                                    durations="10 Days 9 Nights"
+                                    heading="Magical Ladakh"
+                                    durations="5 Days 4 Nights"
+                                    cardImg={img7}
+                                    price="10,500"
+                                    route={
+                                        <p>
+                                            Leh <div className="dot"></div> Nubra <div className="dot"></div> Pangong Lake <div className="dot"></div> Leh
+                                        </p>
+                                    }
                                 />
+                            </div>
+                            <div className="col-lg-12 all_tour_btn mt-5">
+                                <div className="button_div">
+                                    <Link to="">
+                                        <Cardbutton label="View All Packages" />
+                                    </Link>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -340,67 +395,47 @@ useEffect(() => {
             </div>
 
 
+            {/* gallery section */}
 
-            {/* car packages  */}
 
-            <div className="container-fluid car_packages">
-                <div className="container section-p">
-                    <div className="row align-items-center">
-                        <div className="col-6 p-0">
-                            <div className="text_section2">
-                                <h2 className="headings2">Our Car Rental <br />Packages</h2>
-                            </div>
-                        </div>
-                        <div className="col-6 p-0">
-                            <div className="section_heading_box">
-                                <div className="heading_box2">
-                                    <h3>Car Tours</h3>
+            <div className="container-fluid gallery_section">
+                <div className="container section-p gallery_sec">
+                    <div className="row gallery_sec">
+                        <div className="col-lg-5 col-md-12 col-12">
+                            <div className="d-flex align-items-center">
+                                <div className="left-align p-0 gallery_headings">
+                                    <div className="text_section gallery_heading">
+                                        <h2 className="headings">Adventure <br />Gallery</h2>
+                                    </div>
+                                </div>
+                                <div className="left-align p-0 gallery_headings">
+                                    <div className="section_heading_box">
+                                        <div className="heading_box">
+                                            <h3>Gallery</h3>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                            <p className="head_para left-align-para">From trails to valleys, Ladakh rides are unforgettable — discover them in our gallery.</p>
                         </div>
-                        <p className="head_para2">Comfortable and reliable cars for sightseeing, long routes, and everything in between.</p>
+
+
+                        <Gallery />
+
+ 
                     </div>
 
 
-                    {/* cards */}
-                    
-                    <div className="container cards_parent">
-                        <div className="row justify-content-evenly">
-                            <div className="col-lg-4 col-md-4 col-12 card_parent d-flex justify-content-center">
-                                <BikeCard
-                                    heading="Himalayan Bike Package"
-                                    descrip="Ride across Ladakh on a Royal Enfield Himalayan with full support."
-                                    cardImg="https://www.himalayan-routes.com/wp-content/uploads/2016/06/20210713_120207-scaled-e1707110782205.jpg"
-                                    link="./about"
-                                    durations="5 Days 4 Nights"
-                                />
 
 
-                            </div>
-                            <div className="col-lg-4 col-md-4 col-12 card_parent d-flex justify-content-center">
-                                <BikeCard
-                                    heading="Himalayan Bike Package"
-                                    descrip="Ride across Ladakh on a Royal Enfield Himalayan with full support."
-                                    cardImg="https://anamikamishra.com/wp-content/uploads/2016/09/leh-ladakh-9.jpg"
-                                    durations="7 Days 6 Nights"
-                                />
-                            </div>
-                            <div className="col-lg-4 col-md-4 col-12 card_parent d-flex justify-content-center">
-                                <BikeCard
-                                    heading="Himalayan Bike Package"
-                                    descrip="Ride across Ladakh on a Royal Enfield Himalayan with full support."
-                                    cardImg="https://images.wanderon.in/gallery/new/2025/05/22/1747907805682-lakes-of-ladakh-road-trip-7n-8d.webp"
-                                    durations="10 Days 9 Nights"
-                                />
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
 
 
-            <div className="container-fluid" style={{height: '100vh'}}>
+
+
+            <div className="container-fluid" style={{ height: '100vh' }}>
 
             </div>
 

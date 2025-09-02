@@ -1,0 +1,140 @@
+.form_heading_parent{
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;  
+  width: fit-content;
+  padding: 20px 45px;
+  border-radius: 100px;
+  margin-top: 20px;
+
+}
+.form_heading{
+  font-family: "Bebas Neue", sans-serif;
+
+}
+
+.hero_form{
+    /* display: flex;
+    justify-content: space-evenly;
+    align-items:center; */
+    /* margin-top: 20px; */
+}
+
+.heroInput{
+    border: none;
+    outline: none;
+    width: 100%;
+    /* border-radius: 20px; */
+    padding: 15px 0px 0px 0px;
+    font-size: 14px;
+    /* border-bottom: 1px solid rgba(0, 0, 0, 0.149); */
+}
+
+.form_contaniner{
+  padding: 20px 45px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin: 20px 0px 40px 0px;
+  border-radius: 100px;
+  background-color: white;
+  
+}
+
+.form_input{
+  padding: 0px 20px;
+  display: block;
+  border-right: 1px solid #8b0f0422;
+}
+
+.form_butn{
+  height: fit-content;
+}
+
+
+.hero_submit_butn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .heroInput::placeholder{
+  color: #8b0f0471;
+} */
+
+.form_input label{
+  font-weight: bold;
+}
+
+
+.form_input img{
+  height: 20px;
+  margin-top: -2px;
+  margin-right: 10px;
+}
+
+.form_input .email{
+  height: 18px;
+}
+
+
+
+.form_section_small, .form_heading{
+  display: none;
+}
+
+
+
+/* for ios radius */
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+
+
+
+
+
+
+/* media queries */
+
+
+@media (max-width: 992px){
+  .form_contaniner{
+    border-radius: 20px;
+    padding: 20px 20px;
+  }
+
+  .heroInput{
+    border: none;
+    outline: none;
+    width: 100%;
+    /* border-radius: 20px; */
+    padding: 15px 0px 5px 0px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.174);
+  }
+
+  .form_input{
+    border-right: none;
+  }
+
+  .form_butn{
+    width: 100%;
+  }
+
+}
+
+
+@media (max-width: 790px){
+  .form_section_small, .form_heading{
+    display: block;
+  }
+
+  .form_section{
+    display: none;
+  }
+
+  .form_heading{
+    padding: 5px;
+    margin-bottom: 20px;
+  }
+}
