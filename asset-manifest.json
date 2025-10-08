@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/bike_agency/static/css/main.600ce609.css",
-    "main.js": "/bike_agency/static/js/main.51a04b15.js",
+    "main.css": "/bike_agency/static/css/main.5ffe4550.css",
+    "main.js": "/bike_agency/static/js/main.32006d4b.js",
     "static/js/900.a83f86e3.chunk.js": "/bike_agency/static/js/900.a83f86e3.chunk.js",
     "static/js/453.5b1459bd.chunk.js": "/bike_agency/static/js/453.5b1459bd.chunk.js",
     "static/media/CTA2.jpg": "/bike_agency/static/media/CTA2.7dde6ceb69823db7416d.jpg",
@@ -30,12 +30,12 @@
     "static/media/review1.png": "/bike_agency/static/media/review1.e9d43aaada65785f92e7.png",
     "static/media/review2.png": "/bike_agency/static/media/review2.628ac4b23a23fac2c347.png",
     "index.html": "/bike_agency/index.html",
-    "main.600ce609.css.map": "/bike_agency/static/css/main.600ce609.css.map",
-    "main.51a04b15.js.map": "/bike_agency/static/js/main.51a04b15.js.map",
+    "main.5ffe4550.css.map": "/bike_agency/static/css/main.5ffe4550.css.map",
+    "main.32006d4b.js.map": "/bike_agency/static/js/main.32006d4b.js.map",
     "453.5b1459bd.chunk.js.map": "/bike_agency/static/js/453.5b1459bd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.600ce609.css",
-    "static/js/main.51a04b15.js"
+    "static/css/main.5ffe4550.css",
+    "static/js/main.32006d4b.js"
   ]
 }
